@@ -17,7 +17,7 @@ namespace LyricsService
                 Url = "",
             };
 
-            string url = $"http://api.lololyrics.com/0.5/getLyric?artist={request.Artist}&track={request.Title}";
+            string url = $"http://api.lololyrics.com/0.5/getLyric?artist={request.Artist}&track={request.Title}&rawutf8=1";
 
             try
             {

@@ -8,6 +8,67 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       TextWrapping="WrapWholeWords"
+                   FontSize="17">
+                <TextBlock.Inlines>
+                <Run Text="This application is extension for music player " />
+                    <Hyperlink NavigateUri="https://www.microsoft.com/store/apps/9nblggh67n4f?cid=loloext">Next-Player</Hyperlink>
+                <Run Text=", but can also works as standalone application."/>
+            </TextBlock.Inlines>
+            </TextBlock>
 
+        <Grid Grid.Row="1" MaxWidth="400"
+              MinWidth="256"
+              HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="128"/>
+                <ColumnDefinition Width="128"/>
+                <ColumnDefinition Width="96"/>
+            </Grid.ColumnDefinitions>
+            <TextBox 
+                x:Name="ArtistTB" 
+                Grid.Column="0"
+                Margin="4"
+                Text="Artist"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                x:Name="TitleTB" 
+                Grid.Column="1"
+                Margin="4"
+                Text="Title"
+                VerticalAlignment="Center"/>
+            <Button 
+                x:Name="Search" 
+                Grid.Column="2"
+                Margin="4"
+                Click="Search_Click" 
+                Content="Search"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Stretch"/>
+        </Grid>
+        <ScrollViewer Grid.Row="2"
+                      x:Name="scrollViewer">
+            <TextBlock 
+            x:Name="LyricsTB"
+            MaxWidth="400"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Center"
+            />
+        </ScrollViewer>
+        <ProgressRing Grid.Row="2"
+                      Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                      x:Name="progressRing"
+                      Width="150"
+                      Height="150"
+                      IsActive="False"
+                      Visibility="Visible"/>
     </Grid>
 </Page>

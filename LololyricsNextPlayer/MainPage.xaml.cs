@@ -1,6 +1,8 @@
 ﻿using LyricsService;
+using Newtonsoft.Json;
 using NextPlayerExtensionsAPI;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -12,25 +14,41 @@ namespace LololyricsNextPlayer
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private LololyricsService service;
+
         public MainPage()
         {
             this.InitializeComponent();
-            test();
+            service = new LololyricsService();
         }
 
-        private async Task test()
+        private async void Search_Click(object sender, RoutedEventArgs e)
         {
+            LyricsTB.Text = "";
+            scrollViewer.Visibility = Visibility.Collapsed;
+            progressRing.Visibility = Visibility.Visible;
+            progressRing.IsActive = true;
             LyricsRequest r = new LyricsRequest()
             {
                 Album = "",
-                Artist = "Rihanna",
-                Title = "Umbrella"
+                Artist = ArtistTB.Text,
+                Title = TitleTB.Text
             };
-            LololyricsService service = new LololyricsService();
-            var q1 = await service.GetLyrics(r);
-            r.Artist = "fakeartist";
-            r.Title = "faketitle";
-            var q2 = await service.GetLyrics(r);
+
+            var serialized = await service.GetLyrics(r);
+
+            if (!string.IsNullOrEmpty(serialized))
+            {
+                var response = JsonConvert.DeserializeObject<LyricsResponse>(serialized);
+                LyricsTB.Text = response.Lyrics;
+            }
+            if (LyricsTB.Text == "")
+            {
+                LyricsTB.Text = "No lyrics found";
+            }
+            scrollViewer.Visibility = Visibility.Visible;
+            progressRing.Visibility = Visibility.Collapsed;
+            progressRing.IsActive = false;
         }
     }
 }

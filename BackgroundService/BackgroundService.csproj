@@ -112,10 +112,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Next-Player Extensions\NextPlayerExtensionsAPI\NextPlayerExtensionsAPI\NextPlayerExtensionsAPI.csproj">
-      <Project>{afe7cb5e-6848-4eab-8037-cd8eb63a68ad}</Project>
-      <Name>NextPlayerExtensionsAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LyricsService\LyricsService.csproj">
       <Project>{22fc5880-26a5-49d9-9f9e-f3d810d9b5c8}</Project>
       <Name>LyricsService</Name>

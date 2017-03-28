@@ -111,12 +111,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\LyricsService.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Next-Player Extensions\NextPlayerExtensionsAPI\NextPlayerExtensionsAPI\NextPlayerExtensionsAPI.csproj">
-      <Project>{afe7cb5e-6848-4eab-8037-cd8eb63a68ad}</Project>
-      <Name>NextPlayerExtensionsAPI</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundService", "Backgr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyricsService", "LyricsService\LyricsService.csproj", "{22FC5880-26A5-49D9-9F9E-F3D810D9B5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextPlayerExtensionsAPI", "..\Next-Player Extensions\NextPlayerExtensionsAPI\NextPlayerExtensionsAPI\NextPlayerExtensionsAPI.csproj", "{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,22 +73,6 @@ Global
 		{22FC5880-26A5-49D9-9F9E-F3D810D9B5C8}.Release|x64.Build.0 = Release|x64
 		{22FC5880-26A5-49D9-9F9E-F3D810D9B5C8}.Release|x86.ActiveCfg = Release|x86
 		{22FC5880-26A5-49D9-9F9E-F3D810D9B5C8}.Release|x86.Build.0 = Release|x86
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|ARM.ActiveCfg = Debug|ARM
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|ARM.Build.0 = Debug|ARM
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|x64.ActiveCfg = Debug|x64
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|x64.Build.0 = Debug|x64
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|x86.ActiveCfg = Debug|x86
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Debug|x86.Build.0 = Debug|x86
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|ARM.ActiveCfg = Release|ARM
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|ARM.Build.0 = Release|ARM
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|x64.ActiveCfg = Release|x64
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|x64.Build.0 = Release|x64
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|x86.ActiveCfg = Release|x86
-		{AFE7CB5E-6848-4EAB-8037-CD8EB63A68AD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
