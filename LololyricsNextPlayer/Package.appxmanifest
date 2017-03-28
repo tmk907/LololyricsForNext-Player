@@ -4,6 +4,7 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
   IgnorableNamespaces="uap mp">
 
   <Identity
@@ -40,6 +41,22 @@
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+    <Extensions>
+      <uap:Extension Category="windows.appService" EntryPoint="BackgroundService.BackgroundLyricsService">
+        <uap:AppService Name="com.lololyrics.next-player"/>
+      </uap:Extension>
+      <uap3:Extension Category="windows.appExtension">
+        <uap3:AppExtension Name="Next-Player-Lyrics"
+                           Id="Lololyrics"
+                           Description="Lyrics from http://www.lololyrics.com"
+                           DisplayName="Lololyrics for Next-Player"
+                           PublicFolder="LyricsFolder">
+          <uap3:Properties>
+            <Service>com.lololyrics.next-player</Service>
+          </uap3:Properties>
+        </uap3:AppExtension>
+      </uap3:Extension>
+    </Extensions>
     </Application>
   </Applications>
 
