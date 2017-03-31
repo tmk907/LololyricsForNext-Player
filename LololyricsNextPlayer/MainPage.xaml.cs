@@ -24,6 +24,7 @@ namespace LololyricsNextPlayer
 
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
+            Search.IsEnabled = false;
             LyricsTB.Text = "";
             scrollViewer.Visibility = Visibility.Collapsed;
             progressRing.Visibility = Visibility.Visible;
@@ -49,6 +50,7 @@ namespace LololyricsNextPlayer
             scrollViewer.Visibility = Visibility.Visible;
             progressRing.Visibility = Visibility.Collapsed;
             progressRing.IsActive = false;
+            Search.IsEnabled = true;
         }
     }
 }

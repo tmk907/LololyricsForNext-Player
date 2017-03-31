@@ -8,29 +8,45 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <!--<VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchGrid.Width" Value="*"/>
+                    </VisualState.Setters>
+                </VisualState>-->
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="400"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchGrid.Width" Value="400"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchGrid.Width" Value="500"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0"
-                       HorizontalAlignment="Center"
-                       Style="{StaticResource SubtitleTextBlockStyle}"
-                       TextWrapping="WrapWholeWords"
-                   FontSize="17">
-                <TextBlock.Inlines>
-                <Run Text="This application is extension for music player " />
-                    <Hyperlink NavigateUri="https://www.microsoft.com/store/apps/9nblggh67n4f?cid=loloext">Next-Player</Hyperlink>
-                <Run Text=", but can also works as standalone application."/>
-            </TextBlock.Inlines>
-            </TextBlock>
-
-        <Grid Grid.Row="1" MaxWidth="400"
-              MinWidth="256"
-              HorizontalAlignment="Center">
+        <Grid Grid.Row="0"
+              x:Name="SearchGrid"
+              HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="128"/>
-                <ColumnDefinition Width="128"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="96"/>
             </Grid.ColumnDefinitions>
             <TextBox 
@@ -54,21 +70,38 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Stretch"/>
         </Grid>
-        <ScrollViewer Grid.Row="2"
-                      x:Name="scrollViewer">
+        <ScrollViewer 
+            Grid.Row="1"
+            Margin="8,0,8,0"
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            x:Name="scrollViewer">
             <TextBlock 
-            x:Name="LyricsTB"
-            MaxWidth="400"
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Center"
-            />
+                x:Name="LyricsTB"
+                Margin="0"
+                TextWrapping="WrapWholeWords"/>
         </ScrollViewer>
-        <ProgressRing Grid.Row="2"
-                      Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
-                      x:Name="progressRing"
-                      Width="150"
-                      Height="150"
-                      IsActive="False"
-                      Visibility="Visible"/>
+        <ProgressRing 
+            Grid.Row="1"
+            Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+            x:Name="progressRing"
+            Width="100"
+            Height="100"
+            IsActive="False"
+            Visibility="Visible"/>
+
+        <TextBlock 
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            Margin="8,0,8,0"
+            Style="{StaticResource SubtitleTextBlockStyle}"
+            TextWrapping="WrapWholeWords"
+            FontSize="17">
+            <TextBlock.Inlines>
+                <Run Text="This application is extension for music player " />
+                <Hyperlink NavigateUri="https://www.microsoft.com/store/apps/9nblggh67n4f?cid=loloext">Next-Player</Hyperlink>
+                <Run Text=", but can also works as standalone application."/>
+            </TextBlock.Inlines>
+        </TextBlock>
     </Grid>
 </Page>
