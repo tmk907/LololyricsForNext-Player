@@ -86,8 +86,8 @@
             Grid.Row="1"
             Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
             x:Name="progressRing"
-            Width="100"
-            Height="100"
+            Width="80"
+            Height="80"
             IsActive="{x:Bind ViewModel.IsSearching, Mode=OneWay}"
             Visibility="{x:Bind ViewModel.IsSearching, Mode=OneWay}"/>
 
@@ -97,10 +97,10 @@
             Margin="8,0,8,0"
             Style="{StaticResource SubtitleTextBlockStyle}"
             TextWrapping="WrapWholeWords"
-            FontSize="17">
+            FontSize="16">
             <TextBlock.Inlines>
-                <Run Text="This application is extension for music player " />
-                <Hyperlink NavigateUri="https://www.microsoft.com/store/apps/9nblggh67n4f?cid=lyricsfinder">Next-Player</Hyperlink>
+                <Run Text="This application is extension for music player"/>
+                <Hyperlink NavigateUri="https://www.microsoft.com/store/apps/9nblggh67n4f?cid=lololyrics">Next-Player</Hyperlink>
                 <Run Text=", but can also works as standalone application."/>
             </TextBlock.Inlines>
         </TextBlock>

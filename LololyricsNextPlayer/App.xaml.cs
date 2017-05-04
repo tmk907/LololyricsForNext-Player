@@ -21,6 +21,7 @@ namespace LololyricsNextPlayer
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            //App.Current.RequestedTheme = ApplicationTheme.Dark;
         }
 
         /// <summary>
