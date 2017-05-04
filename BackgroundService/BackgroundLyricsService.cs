@@ -1,5 +1,4 @@
 ﻿using LyricsService;
-using NextPlayerExtensionsAPI;
 using System;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
@@ -30,20 +29,8 @@ namespace BackgroundService
             var messageDeferral = args.GetDeferral();
 
             ValueSet message = args.Request.Message;
-            ValueSet returnData = new ValueSet();
-
-            if (message.ContainsKey(Commands.GetLyrics))
-            {
-                string data = message[Commands.GetLyrics] as string;
-                LololyricsService service = new LololyricsService();
-                string result = await service.ParseDataAndGetLyrics(data);
-                returnData.Add(Responses.Result, result);
-                returnData.Add(Responses.Status, "OK");
-            }
-            else
-            {
-                returnData.Add(Responses.Status, "Fail: Missing command");
-            }
+            LololyricsService service = new LololyricsService();
+            ValueSet returnData = await service.ParseDataAndGetLyrics(message);
 
             await args.Request.SendResponseAsync(returnData); // Return the data to the caller.
             messageDeferral.Complete(); // Complete the deferral so that the platform knows that we're done responding to the app service call.
