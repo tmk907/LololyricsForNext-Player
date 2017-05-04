@@ -5,6 +5,7 @@
     xmlns:local="using:LololyricsNextPlayer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=MainPageVM}"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -57,7 +58,7 @@
             <TextBox 
                 Grid.Column="1"
                 Margin="4"
-                Text="{x:Bind ViewModel.Artist, Mode=TwoWay}"
+                Text="{x:Bind ViewModel.Title, Mode=TwoWay}"
                 VerticalAlignment="Center"/>
             <Button 
                 x:Name="Search" 
