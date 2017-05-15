@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
-using NextPlayerExtensionsAPI;
-using System;
+﻿using System;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation.Collections;
 using Windows.Networking.Connectivity;
+using UWPMusicPlayerExtensions.Service;
+using UWPMusicPlayerExtensions.Messages;
 
 namespace LyricsService
 {
@@ -16,32 +16,15 @@ namespace LyricsService
         {
             ValueSet response = new ValueSet();
 
-            if (message.ContainsKey(Commands.GetLyrics))
-            {
-                string data = message[Commands.GetLyrics] as string;
+            LyricsExtensionService service = new LyricsExtensionService();
+            var request = service.GetRequest(message);
+            var result = await GetLyrics(request);
+            response = service.PrepareResponse(result);
 
-                string result = "";
-                try
-                {
-                    LyricsRequest request = JsonConvert.DeserializeObject<LyricsRequest>(data);
-                    result = await GetLyrics(request);
-                }
-                catch (Exception ex)
-                {
-                }
-
-                response.Add(Responses.Result, result);
-                response.Add(Responses.Status, "OK");
-            }
-            else
-            {
-                response.Add(Responses.Status, "Fail: Missing command");
-            }
-            
             return response;
         }
 
-        public async Task<string> GetLyrics(LyricsRequest request)
+        public async Task<LyricsResponse> GetLyrics(LyricsRequest request)
         {
             var response = new LyricsResponse()
             {
@@ -69,8 +52,7 @@ namespace LyricsService
 
                 }
             }
-            string serialized = JsonConvert.SerializeObject(response);
-            return serialized;
+            return response;
         }
 
         private bool IsInternetAvailable

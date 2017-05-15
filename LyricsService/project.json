@@ -2,7 +2,7 @@
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
     "Newtonsoft.Json": "9.0.1",
-    "NextPlayerExtensionsAPI": "0.9.2"
+    "UWPMusicPlayerExtensions": "0.9.2"
   },
   "frameworks": {
     "uap10.0": {}

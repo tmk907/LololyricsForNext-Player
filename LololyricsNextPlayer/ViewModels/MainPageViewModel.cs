@@ -1,7 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using LyricsService;
-using Newtonsoft.Json;
-using NextPlayerExtensionsAPI;
+using UWPMusicPlayerExtensions.Messages;
 
 namespace LololyricsNextPlayer.ViewModels
 {
@@ -48,11 +47,10 @@ namespace LololyricsNextPlayer.ViewModels
                 Title = title
             };
 
-            var serialized = await service.GetLyrics(r);
+            var response = await service.GetLyrics(r);
 
-            if (!string.IsNullOrEmpty(serialized))
+            if (response != null)
             {
-                var response = JsonConvert.DeserializeObject<LyricsResponse>(serialized);
                 Lyrics = response.Lyrics;
             }
             if (Lyrics == "")
@@ -63,6 +61,5 @@ namespace LololyricsNextPlayer.ViewModels
             Artist = "";
             Title = "";
         }
-
     }
 }
